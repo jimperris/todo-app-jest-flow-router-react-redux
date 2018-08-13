@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`post should render and keep props 1`] = `
+<div>
+  <div
+    key="0"
+  >
+    <Link
+      replace={false}
+      to="/todos/0"
+    >
+      jazzo
+    </Link>
+  </div>
+  <div
+    key="1"
+  >
+    <Link
+      replace={false}
+      to="/todos/1"
+    >
+      zoo
+    </Link>
+  </div>
+</div>
+`;

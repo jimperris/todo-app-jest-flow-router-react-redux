@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer should match snapshot 1`] = `
+<div>
+  <button
+    className="showAll"
+    onClick={[Function]}
+    style={
+      Object {
+        "color": "black",
+      }
+    }
+  >
+    Show All
+  </button>
+  <button
+    className="showCompleted"
+    onClick={[Function]}
+    style={
+      Object {
+        "color": "blue",
+      }
+    }
+  >
+    Show Completed
+  </button>
+  <button
+    className="showInProgress"
+    onClick={[Function]}
+    style={
+      Object {
+        "color": "black",
+      }
+    }
+  >
+    Show In Progress
+  </button>
+</div>
+`;

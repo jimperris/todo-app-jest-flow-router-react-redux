@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`post should match snapshot 1`] = `
+<div>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    Home
+  </a>
+  <h2
+    onClick={[Function]}
+    style={
+      Object {
+        "border": "1px solid black",
+      }
+    }
+  >
+    name
+  </h2>
+  <h4>
+    in progress
+  </h4>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    Remove
+  </a>
+</div>
+`;
