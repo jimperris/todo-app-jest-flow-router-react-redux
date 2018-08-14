@@ -18,8 +18,7 @@ export const removeTodo = (id: number): TodoFilterActions => {
 export const setVisibilityFilter = (filter: string) => {
   return {
     type: 'SET_VISIBILITY_FILTER',
-    filter: filter,
-    id: 42020
+    filter: filter
   }
 }
 
