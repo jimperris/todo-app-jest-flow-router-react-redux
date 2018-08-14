@@ -1,10 +1,9 @@
 //@flow
 import React from 'react'
 import { Link } from 'react-router-dom'
-//import fetchPosts from './actions.js'
-import type {Todos} from '../types/basic'
-const TodoList = (todos: Todos) => {
-  console.log(todos)
+import {connect} from 'react-redux'
+import type { Todo, Todos, State } from '../types/basic'
+const TodoList = ({todos}: {todos: Array<Todo>}) => {
   return (
     <div>
       {todos.map((todo, i) => {
@@ -20,4 +19,17 @@ const TodoList = (todos: Todos) => {
   )
 }
 
-export default TodoList
+const getVisibleTodos = (todos: Todos, filter: string) => {
+  switch (filter) {
+  case 'SHOW_ALL': return todos
+  case 'SHOW_COMPLETED': return todos.filter(t => t.complete)
+  case 'SHOW_IN_PROGRESS': return todos.filter(t => !t.complete)
+  default: throw new Error('Unknown filter: ' + filter)
+  }
+}
+const mapStateToProps = (state: State) => ({
+  todos: getVisibleTodos(state.todos, state.filter)
+})
+const Component = connect(mapStateToProps)(TodoList)
+
+export default Component

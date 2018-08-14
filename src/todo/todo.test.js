@@ -1,3 +1,4 @@
+//@flow
 import Todo from './todo.jsx'
 import { mount } from 'enzyme'
 import React from 'react'
@@ -7,18 +8,18 @@ import {mapStateToProps, mapDispatchToProps} from './todo'
 import {BrowserRouter as Router} from 'react-router-dom'
 describe('maps', () => {
   it('mapStateToProps', () => {
-    expect(mapStateToProps({todos: [{title: 'hairo'}]})).toEqual({todos: [{title: 'hairo'}]})
+    expect(mapStateToProps({todos: [{title: 'hairo', id: 3, complete: false}], filter: 'SHOW_ALL'})).toEqual({todos: [{title: 'hairo', id: 3, complete: false}]})
   })
   it('mapDispatchToProps', () => {
     const dispatch = jest.fn()
-    mapDispatchToProps(dispatch).removeTodo('3')
-    expect(dispatch.mock.calls[0][0]).toEqual(actions.removeTodo('3'))
+    mapDispatchToProps(dispatch).removeTodo(3)
+    expect(dispatch.mock.calls[0][0]).toEqual(actions.removeTodo(3))
   })
 })
 
 describe('findTodo function', () => {
-  let todo = findTodo({todos: [{id: 2}, {title: 'ooooof', id: '14'}], id: '14'})
-  expect(todo).toEqual({title: 'ooooof', id: '14'})
+  let todo = findTodo([{id: 2, title: 'flomp', complete: false}, {title: 'ooooof', complete: false, id: 14}], 14)
+  expect(todo).toEqual({title: 'ooooof', id: 14})
 })
 
 describe('post', () => {

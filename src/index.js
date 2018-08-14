@@ -1,9 +1,10 @@
+
 import React from 'react'
-import ReactDOM from 'react-dom'
+import {render} from 'react-dom'
 import './index.css'
 import Wrapper from './wrapper.jsx'
 
-ReactDOM.render(
+render(
   <Wrapper />,
   document.getElementById('root')
 )

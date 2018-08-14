@@ -1,25 +1,24 @@
 //@flow
-import React from 'react'
-type Props = {|
-  addTodoTest?: (title: string) => void,
-  addTodo?: (title: string) => void
-|}
-type State = {|
+import React, { Component } from 'react'
+import type { Dispatch } from '../types/basic'
+import { connect } from 'react-redux'
+import * as actions from '../actions/actions'
+
+type Props = {
+  addTodo: (title: string) => void
+}
+type State = {
   value: string
-|}
-class AddTodo extends React.Component<Props, State> {
+}
+export class AddTodo extends Component<Props, State> {
   value: HTMLInputElement
-  state: State = {
+  state = {
     value: 'name'
   }
-  handleClick() {
-    var func: (title: string) => void
-    if(this.props.addTodoTest) func = this.props.addTodoTest
-    else if(this.props.addTodo) func = this.props.addTodo
-    else {func = (title: string) => console.log('ERROR: no function passed' + title)}
-    func(this.state.value)
+  handleClick = () => {
+    this.props.addTodo(this.state.value)
   }
-  handleChange(event: SyntheticKeyboardEvent<HTMLButtonElement>) {
+  handleChange = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
     this.setState({value: event.currentTarget.value})
   }
   render() {
@@ -31,4 +30,9 @@ class AddTodo extends React.Component<Props, State> {
     )
   }
 }
-export default AddTodo
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  addTodo: (name: string) => dispatch(actions.addTodo(name))
+})
+const AddTodoCont = connect(null, mapDispatchToProps)(AddTodo)
+export default AddTodoCont

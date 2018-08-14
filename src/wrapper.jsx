@@ -1,13 +1,12 @@
-
+//@flow
 import React from 'react'
 import { Provider } from 'react-redux'
 
-import {TodoContainer} from './todo/todo.js'
-import TodoList  from './todoList/todoList'
-import VisibilityFilter from './visibilityFilter/visibilityFilter'
-import AddTodo from './addTodo/addTodo'
+import TodoContainer from './todo/todo.jsx'
+import TodoList  from './todoList/todoList.jsx'
+import VisibilityFilter from './visibilityFilter/visibilityFilter.jsx'
+import AddTodo from './addTodo/addTodo.jsx'
 import reducer from './reducers/root'
-
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { createStore } from 'redux'
 
@@ -28,7 +27,7 @@ const Wrapper = () => (
             <VisibilityFilter />
           </div>
         )} />
-        <Route path={'/todos/:id'} render={(match) => <TodoContainer id={match.match.params.id}/>}/>
+        <Route path={'/todos/:id'} render={(match) => <TodoContainer id={parseInt(match.match.params.id, 10)}/>}/>
       </Switch>
     </Router>
   </Provider>
