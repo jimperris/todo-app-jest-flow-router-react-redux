@@ -7,9 +7,7 @@ import * as actions from '../actions/actions'
 
 export const findTodo = (todos: Todos, id: number) => {
   for(var i = 0; i < todos.length; i++) {
-    if(todos[i].id === id) {
-      return todos[i]
-    }
+    if (todos[i].id === id) return todos[i]
   }
   throw new Error('ERROR FROM A ME: TODO WAS NOT FOUND')
 }
