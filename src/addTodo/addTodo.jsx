@@ -18,14 +18,14 @@ export class AddTodo extends Component<Props, State> {
   handleClick = () => {
     this.props.addTodo(this.state.value)
   }
-  handleChange = (event: SyntheticKeyboardEvent<HTMLInputElement>) => {
-    this.setState({value: event.currentTarget.value})
+  handleChange = ({target}: SyntheticInputEvent<>) => {
+    this.setState({value: target.value})
   }
   render() {
     return (
       <div>
-        <input type="text" value={this.state.value} onChange={this.handleChange} />
-        <button onClick={this.handleClick}>Submit</button>
+        <input autoFocus value={this.state.value} onChange={this.handleChange} />
+        <button type="submit" onClick={this.handleClick}>Submit</button>
       </div>
     )
   }

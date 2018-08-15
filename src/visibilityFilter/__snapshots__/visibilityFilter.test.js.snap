@@ -33,7 +33,7 @@ exports[`reducer should match snapshot 1`] = `
       }
     }
   >
-    Show In Progress
+      Show In Progress
   </button>
 </div>
 `;

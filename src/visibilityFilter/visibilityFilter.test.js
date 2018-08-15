@@ -1,4 +1,4 @@
-import VisibilityFilter from './visibilityFilter.jsx'
+import {VisibilityFilter} from './visibilityFilter.jsx'
 import {mount} from 'enzyme'
 import React from 'react'
 describe('reducer', () => {

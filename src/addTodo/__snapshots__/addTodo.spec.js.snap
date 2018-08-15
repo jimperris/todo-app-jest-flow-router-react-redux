@@ -3,12 +3,13 @@
 exports[`addTodo component should match snapshot 1`] = `
 <div>
   <input
+    autoFocus={true}
     onChange={[Function]}
-    type="text"
     value="name"
   />
   <button
     onClick={[Function]}
+    type="submit"
   >
     Submit
   </button>

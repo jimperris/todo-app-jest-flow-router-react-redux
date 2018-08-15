@@ -1,21 +1,24 @@
 //@flow
 import React from 'react'
 import {AddTodo} from './addTodo.jsx'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 describe('addTodo component', () => {
   const spy = jest.fn()
-  const wrap = shallow(
+  const wrap = mount(
     <AddTodo addTodo={spy} />
   )
   it('should match snapshot', () => {
     expect(wrap).toMatchSnapshot()
   })
-  it('should change input text and dispatch addtodo action with input name when button is clicked', () => {
+  it('should call spy', () => {
     const button = wrap.find('button')
     button.simulate('click')
-    const input = wrap.find('input')
-    input.simulate('keydown', { which: 'a' })
     expect(spy).toHaveBeenCalled()
-    expect(input.props().value).toBe('namea')
+  })
+  it('should change input text and state with it', () => {
+    const input = wrap.find('input')
+
+    input.simulate('change', {target: {value: 'namea'}})
+    expect(wrap.state('value')).toBe('namea')
   })
 })
