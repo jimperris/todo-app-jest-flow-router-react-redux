@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import type { Todo, Todos, State } from '../types/basic'
-const TodoList = ({todos}: {todos: Array<Todo>}) => {
+export const TodoList = ({todos}: {todos: Array<Todo>}) => {
   return (
     <div>
       {todos.map((todo, i) => {

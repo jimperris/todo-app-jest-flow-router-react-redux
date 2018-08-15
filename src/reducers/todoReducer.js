@@ -8,7 +8,7 @@ function todosReducer(state: Todos=[], action: TodoFilterActions): Todos {
       {
         title: action.title || 'no title',
         complete: false,
-        id: action.id || Math.floor((Math.random() * 10000000) + 1)
+        id: action.id 
       }
     ]
   case 'RESET':

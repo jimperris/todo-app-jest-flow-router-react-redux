@@ -1,5 +1,5 @@
 //@flow
-import Todo from './todo.jsx'
+import {TodoComp} from './todo.jsx'
 import { mount } from 'enzyme'
 import React from 'react'
 import * as actions from '../actions/actions'
@@ -19,13 +19,13 @@ describe('maps', () => {
 
 describe('findTodo function', () => {
   let todo = findTodo([{id: 2, title: 'flomp', complete: false}, {title: 'ooooof', complete: false, id: 14}], 14)
-  expect(todo).toEqual({title: 'ooooof', id: 14})
+  expect(todo).toEqual({title: 'ooooof', id: 14, complete: false})
 })
 
 describe('post', () => {
   const wrap = mount(
     <Router>
-      <Todo id={0} todos={[{title: 'name', id: 0, complete: false}]} />
+      <TodoComp id={0} toggleTodo={() => undefined} removeTodo={() => undefined} todos={[{title: 'name', id: 0, complete: false}]} />
     </Router>
   )
   it('should render and keep props', () => {
